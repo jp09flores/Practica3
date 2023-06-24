@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface ArbolService {
     
-     public List<Arbol> getArboles (String especie);
+      public List<Arbol> getArboles(boolean estadoVida);
      
 
 }
