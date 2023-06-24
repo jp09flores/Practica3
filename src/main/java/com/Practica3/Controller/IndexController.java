@@ -8,7 +8,7 @@ public class IndexController {
     
     @RequestMapping("/")
     public String page(Model model) {
-        model.addAttribute("attribute", "value");
+        //model.addAttribute("attribute", "value");
         return "indexz";
 
 

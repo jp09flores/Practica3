@@ -20,15 +20,17 @@ public class Arbol implements Serializable {
     private String altura;
     private Long edad;
     private String rutaImagen;
+    private boolean estadoVida;
 
     public Arbol() {
     }
 
-    public Arbol(String especie, String ubicacion, String altura, Long edad, String rutaImagen) {
+    public Arbol(String especie, String ubicacion, String altura, Long edad, String rutaImagen, boolean estadoVida) {
         this.especie = especie;
         this.ubicacion = ubicacion;
         this.altura = altura;
         this.edad = edad;
         this.rutaImagen = rutaImagen;
+        this.estadoVida = estadoVida;
     }
 }

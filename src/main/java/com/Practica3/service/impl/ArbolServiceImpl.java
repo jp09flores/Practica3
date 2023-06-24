@@ -14,9 +14,12 @@ public class ArbolServiceImpl implements ArbolService{
     
     @Override
     @Transactional(readOnly = true)
-    public List<Arbol> getArboles(String especie) {
+    public List<Arbol> getArboles(boolean estadoVida) {
         List<Arbol> arboles = arbolDao.findAll();
-
-        return arboles;    
-    }    
+        
+        if (estadoVida) {
+            arboles.removeIf(x -> !x.isEstadoVida());
+        }
+        
+        return arboles;    }
 }
