@@ -26,7 +26,7 @@ public class ArbolController {
         log.info("Consumo del Recurso /arbol/listado");
         List<Arbol> arboles = arbolService.getArboles(false);
         model.addAttribute("Lista_Arboles", arboles);
-        model.addAttribute("Total_Arboles", arboles.size());
+        model.addAttribute("Total_Categorias", arboles.size());
         return "/arbol/listado";
     }
 
@@ -35,24 +35,22 @@ public class ArbolController {
         return "/arbol/editar";
     }
 
-    
-    @Autowired
-    private FirebaseStorageServiceimpl firebaseStorageService;
-    
-    @Autowired
-    @PostMapping("/guardar")
-    public String arbolGuardar(Arbol arbol, @RequestParam("imagenFile") MultipartFile imagenFile) {
-        if (!imagenFile.isEmpty()) {
-            arbolService.save(arbol);
-            arbol.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "arbol",
-                            arbol.getIdArbol()));
-        }
-        arbolService.save(arbol);
-        return "redirect:/arbol/listado";
-    }
+  
+
+//    @Autowired
+//    @PostMapping("/guardar")
+//    public String arbolGuardar(Arbol arbol, @RequestParam("imagenFile") MultipartFile imagenFile) {
+//        if (!imagenFile.isEmpty()) {
+//            arbolService.save(arbol);
+//            arbol.setRutaImagen(
+//                    firebaseStorageService.cargaImagen(
+//                            imagenFile,
+//                            "arbol",
+//                            arbol.getIdArbol()));
+//        }
+//        arbolService.save(arbol);
+//        return "redirect:/arbol/listado";
+//    }
 
     @GetMapping("/eliminar/{idArbol}")
     public String ArbolEliminar(Arbol arbol) {
