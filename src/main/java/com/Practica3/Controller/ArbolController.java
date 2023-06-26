@@ -31,38 +31,26 @@ public class ArbolController {
     }
 
     @GetMapping("/nuevo")
-    public String ArbolNuevo(Arbol arbol) {
+    public String arbolNuevo(Arbol arbol) {
         return "/arbol/editar";
     }
 
-  
+    @PostMapping("/guardar")
+    public String arbolGuardar(Arbol arbol) {
+        arbolService.save(arbol);
+        return "redirect:/arbol/listado";
+    }
 
-//    @Autowired
-//    @PostMapping("/guardar")
-//    public String arbolGuardar(Arbol arbol, @RequestParam("imagenFile") MultipartFile imagenFile) {
-//        if (!imagenFile.isEmpty()) {
-//            arbolService.save(arbol);
-//            arbol.setRutaImagen(
-//                    firebaseStorageService.cargaImagen(
-//                            imagenFile,
-//                            "arbol",
-//                            arbol.getIdArbol()));
-//        }
-//        arbolService.save(arbol);
-//        return "redirect:/arbol/listado";
-//    }
-
-    @GetMapping("/eliminar/{idArbol}")
-    public String ArbolEliminar(Arbol arbol) {
+    @GetMapping("/eliminar/{idCategoria}")
+    public String arbolEliminar(Arbol arbol) {
         arbolService.delete(arbol);
         return "redirect:/arbol/listado";
     }
 
-    @GetMapping("/editar/{idArbol}")
-    public String arboleditar(Arbol arbol, Model model) {
+    @GetMapping("/modificar/{idArbol}")
+    public String arbolModificar(Arbol arbol, Model model) {
         arbol = arbolService.getArbol(arbol);
         model.addAttribute("arbol", arbol);
         return "/arbol/editar";
     }
-
 }
