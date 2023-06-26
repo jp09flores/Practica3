@@ -5,10 +5,8 @@
     <body>
         <header th:replace="~{layout/plantilla :: header}"></header>
         
-        <section th:replace="arbol/fragmentos :: listadoArboles"></section>
-        <section th:replace="arbol/fragmentos :: botonAgregar"></section>
+        <section th:replace="~{arbol/fragmentos :: nuevo}"></section>
         
-
         <footer th:replace="~{layout/plantilla :: footer}"></footer>
     </body>
 </html>

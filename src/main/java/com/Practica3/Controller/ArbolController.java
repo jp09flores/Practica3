@@ -32,7 +32,7 @@ public class ArbolController {
 
     @GetMapping("/nuevo")
     public String arbolNuevo(Arbol arbol) {
-        return "/arbol/editar";
+        return "/arbol/nuevo";
     }
 
     @PostMapping("/guardar")
@@ -41,7 +41,7 @@ public class ArbolController {
         return "redirect:/arbol/listado";
     }
 
-    @GetMapping("/eliminar/{idCategoria}")
+    @GetMapping("/eliminar/{idArbol}")
     public String arbolEliminar(Arbol arbol) {
         arbolService.delete(arbol);
         return "redirect:/arbol/listado";
