@@ -22,10 +22,8 @@ public class ArbolController {
     public String page(Model model) {
         log.info("Consumo del Recurso /arbol/listado");
         List<Arbol> arboles = arbolService.getArboles(false);
-        model.addAttribute("Lista_Categorias", arboles);
+        model.addAttribute("Lista_Arboles", arboles);
         model.addAttribute("Total_Categorias", arboles.size());
         return "/arbol/listado";
-    }
-    
-    
+    }  
 }
