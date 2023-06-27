@@ -135,7 +135,7 @@
 
                                                     <label for="imagen">[[#{arbol.rutaImagen}]]</label>
 
-                                                    <input type="text" class="form-control" 
+                                                    <input type="url" class="form-control" 
                                                            name="imagen"
                                                            required="true" th:field="*{rutaImagen}">
                                                     <br>
@@ -167,8 +167,8 @@
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>
                     </div>
-                    <div style="background-color: #4a7e4b"  class="col-md-4 d-grid">
-                        <button type="submit" class="btn ">
+                    <div   class="col-md-4 d-grid">
+                        <button style="background-color: #4a7e4b" type="submit" class="btn ">
                             <i class="fas fa-check"></i> [[#{accion.guardar}]]
                         </button>
                     </div>
@@ -237,7 +237,7 @@
 
                                                 <div class="mb-3">
                                                     <label for="imagen">[[#{arbol.rutaImagen}]]</label>
-                                                    <input type="text" class="form-control" 
+                                                    <input type="url" class="form-control" 
                                                            name="imagen"
                                                            required="true" th:field="*{rutaImagen}">
                                                 </div>
